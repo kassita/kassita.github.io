@@ -27,6 +27,40 @@ function createTrackCanvas(canvas) {
 
     fieldPath.strokeColor = '#ffffff';
     fieldPath.fillColor = '#07a61e';
-
+    
+    drawTrackLane(fieldOrigin, track.fieldSize.width, track.fieldSize.height, 0);
+    
     paper.view.draw();
+}
+
+function drawTrackLane(origin, width, height, laneNumber) {
+    var radius = height/2;
+    var offset = 10;
+    var path = new paper.Path();
+    
+    // Give the stroke a color
+    path.strokeColor = '#f26257';
+    path.strokeWidth = 10;
+    
+    var start = new paper.Point(origin.width+width-radius, origin.height-offset);
+    
+    // Move to start and draw a line from there
+	path.moveTo(start);
+
+    path.lineTo(new paper.Point(origin.width+radius, origin.height-offset));
+    
+    path.arcTo(
+        new paper.Point(origin.width-offset,origin.height+radius),
+        new paper.Point(origin.width+radius,origin.height+height+offset)
+    );
+
+    path.lineTo(new paper.Point(origin.width+width-radius,origin.height+height+offset));
+
+    path.arcTo(
+        new paper.Point(origin.width+width+offset,origin.height+radius),
+        start
+    );
+
+
+
 }
