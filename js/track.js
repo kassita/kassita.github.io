@@ -1,6 +1,6 @@
 const track = {
     trackSize: new paper.Size(500, 300),
-    fieldSize: new paper.Size(400, 175)
+    fieldSize: new paper.Size(350, 125)
 };
 
 function createTrackCanvas(canvas) {
@@ -28,19 +28,22 @@ function createTrackCanvas(canvas) {
     fieldPath.strokeColor = '#ffffff';
     fieldPath.fillColor = '#07a61e';
     
-    drawTrackLane(fieldOrigin, track.fieldSize.width, track.fieldSize.height, 0);
+    for (i=0; i<6;i++){
+
+    drawTrackLane(fieldOrigin, track.fieldSize.width, track.fieldSize.height, i);
+    }
     
     paper.view.draw();
 }
 
 function drawTrackLane(origin, width, height, laneNumber) {
     var radius = height/2;
-    var offset = 10;
+    var offset = (laneNumber + 1) * 10;
     var path = new paper.Path();
     
     // Give the stroke a color
     path.strokeColor = '#f26257';
-    path.strokeWidth = 10;
+    path.strokeWidth = 9;
     
     var start = new paper.Point(origin.width+width-radius, origin.height-offset);
     
