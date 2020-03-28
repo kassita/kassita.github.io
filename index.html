@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>LT Mini Game Scoreboard</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.2/paper-full.min.js" integrity="sha256-xT9jNx8tzepeeLwMeN985td1KYlkEOZJ/ReF9XMLoMU=" crossorigin="anonymous"></script>
+    <script src="/js/track.js"></script>
+</head>
+
+<body>
+    <h1>Wellness Mini Game - Tier 2</h1>
+    <canvas class="track"></canvas>
+
+    <script>
+        window.onload = function() {
+            canvas = document.getElementsByClassName('track');
+            createTrackCanvas(canvas[0]);
+        }
+    </script>
+</body>
+</html>
