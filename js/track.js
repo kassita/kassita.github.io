@@ -7,42 +7,42 @@ const people = [
     {
         name:"Kassi",
         color:"#ffffff",
-        progress: .6,
+        progress: .22,
         lane: 0,
         path: null
     },
     {
         name:"Denise",
         color:"#34ebb4",
-        progress: .6,
+        progress: .08,
         lane: 1,
         path: null
     },
     {
         name:"Dakotah",
         color:"#0c26ed",
-        progress: .6,
+        progress: .0,
         lane: 2,
         path: null
     },
     {
         name:"Joe",
         color:"#09ed11",
-        progress: .6,
+        progress: .10,
         lane: 3,
         path: null
     },
     {
         name:"Kelly",
         color:"#830fd1",
-        progress: .6,
+        progress: .14,
         lane: 4,
         path: null
     },
     {
         name:"Todd",
         color:"#f58c0c",
-        progress: .6,
+        progress: .16,
         lane: 5,
         path: null
     }
@@ -131,7 +131,8 @@ function drawMarker (lane0path, person, origin, width, height) {
     
     var radius = height/2;
     var offset = (person.lane + 1) * 10;
-    var startPoint = person.path.getPointAt(person.path.length-lane0path.length);
+    var startOffset = person.path.length-lane0path.length;
+    var startPoint = person.path.getPointAt(startOffset+lane0path.length*person.progress);
     var marker = new paper.Path.Circle(startPoint, 5);
     marker.fillColor = person.color;
     var startLine = new paper.Path();
