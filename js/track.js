@@ -3,6 +3,50 @@ const track = {
     fieldSize: new paper.Size(350, 125)
 };
 
+const people = [
+    {
+        name:"Kassi",
+        color:"#ffffff",
+        progress: .6,
+        lane: 0,
+        path: null
+    },
+    {
+        name:"Denise",
+        color:"#34ebb4",
+        progress: .6,
+        lane: 1,
+        path: null
+    },
+    {
+        name:"Dakotah",
+        color:"#0c26ed",
+        progress: .6,
+        lane: 2,
+        path: null
+    },
+    {
+        name:"Joe",
+        color:"#09ed11",
+        progress: .6,
+        lane: 3,
+        path: null
+    },
+    {
+        name:"Kelly",
+        color:"#830fd1",
+        progress: .6,
+        lane: 4,
+        path: null
+    },
+    {
+        name:"Todd",
+        color:"#f58c0c",
+        progress: .6,
+        lane: 5,
+        path: null
+    }
+]
 function createTrackCanvas(canvas) {
     paper.setup(canvas);
 
@@ -28,11 +72,26 @@ function createTrackCanvas(canvas) {
     fieldPath.strokeColor = '#ffffff';
     fieldPath.fillColor = '#07a61e';
     
-    for (i=0; i<6;i++){
+    for (var person of people) {
+        person.path=drawTrackLane(fieldOrigin, track.fieldSize.width, track.fieldSize.height, person.lane);
+    }
 
-    drawTrackLane(fieldOrigin, track.fieldSize.width, track.fieldSize.height, i);
+    for (var person of people) {
+        drawMarker(people[0].path, person, fieldOrigin, track.fieldSize.width, track.fieldSize.height);
     }
     
+    var finishLine = new paper.Path();
+    
+    finishLine.strokeColor = '#e9e8eb';
+    finishLine.strokeWidth = 1.75;
+    var lane0Start = people[0].path.getPointAt(0);
+    var laneNStart = people[people.length-1].path.getPointAt(0);
+    var finishLineStart = new paper.Point(lane0Start.x-7,lane0Start.y+4.5);
+    var finishLineEnd = new paper.Point(lane0Start.x-7,laneNStart.y-4.5);
+
+    finishLine.moveTo(finishLineStart);
+    finishLine.lineTo(finishLineEnd);
+
     paper.view.draw();
 }
 
@@ -64,6 +123,29 @@ function drawTrackLane(origin, width, height, laneNumber) {
         start
     );
 
+    return path;
 
+}
 
+function drawMarker (lane0path, person, origin, width, height) {
+    
+    var radius = height/2;
+    var offset = (person.lane + 1) * 10;
+    var startPoint = person.path.getPointAt(person.path.length-lane0path.length);
+    var marker = new paper.Path.Circle(startPoint, 5);
+    marker.fillColor = person.color;
+    var startLine = new paper.Path();
+
+    startLine.strokeColor = '#e9e8eb';
+    startLine.strokeWidth = 1.75;
+    
+    var start = person.path.getPointAt(person.path.length-lane0path.length+7);
+    
+    // Move to start and draw a line from there
+    startLine.moveTo(new paper.Point(start.x,start.y+person.path.strokeWidth/2));
+    startLine.lineTo(new paper.Point(start.x,start.y-person.path.strokeWidth/2));
+    //startLine.moveBy(new paper.Point(0,person.path.strokeWidth/2));
+    //startLine.lineBy(new paper.Point(0,-person.path.strokeWidth));
+    
+    //startLine.lineTo(new paper.Point(origin.width+radius, origin.height-offset));
 }
