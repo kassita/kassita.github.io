@@ -6,15 +6,15 @@ const track = {
 const people = [
     {
         name:"Kassi",
-        color:"#ffffff",
-        progress: .22,
+        color:"#f7eb05",
+        progress: .33,
         lane: 0,
         path: null
     },
     {
         name:"Denise",
-        color:"#34ebb4",
-        progress: .08,
+        color:"#ffffff",
+        progress: .28,
         lane: 1,
         path: null
     },
@@ -28,7 +28,7 @@ const people = [
     {
         name:"Joe",
         color:"#09ed11",
-        progress: .10,
+        progress: .28,
         lane: 3,
         path: null
     },
