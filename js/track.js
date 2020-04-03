@@ -7,42 +7,42 @@ const people = [
     {
         name:"Kassi",
         color:"#f7eb05",
-        progress: .33,
+        progress: .47,
         lane: 0,
         path: null
     },
     {
         name:"Denise",
         color:"#ffffff",
-        progress: .28,
+        progress: .39,
         lane: 1,
         path: null
     },
     {
         name:"Dakotah",
         color:"#0c26ed",
-        progress: .0,
+        progress: .30,
         lane: 2,
         path: null
     },
     {
         name:"Joe",
         color:"#09ed11",
-        progress: .28,
+        progress: .46,
         lane: 3,
         path: null
     },
     {
         name:"Kelly",
         color:"#830fd1",
-        progress: .14,
+        progress: .38,
         lane: 4,
         path: null
     },
     {
         name:"Todd",
         color:"#f58c0c",
-        progress: .16,
+        progress: .30,
         lane: 5,
         path: null
     }
