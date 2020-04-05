@@ -79,6 +79,10 @@ function createTrackCanvas(canvas) {
     for (var person of people) {
         drawMarker(people[0].path, person, fieldOrigin, track.fieldSize.width, track.fieldSize.height);
     }
+
+    for (var person of people) {
+        drawLegend(person, fieldOrigin)
+    }
     
     var finishLine = new paper.Path();
     
@@ -91,6 +95,28 @@ function createTrackCanvas(canvas) {
 
     finishLine.moveTo(finishLineStart);
     finishLine.lineTo(finishLineEnd);
+
+    /*var testPosition = new paper.Point(0,0);
+    var testImage = "/img/IMG_20200311_170150.jpg";
+    var raster = new paper.Raster(testImage);
+
+    raster.position = paper.view.center;
+    raster.scale(0.025);
+
+    raster.onLoad = function() {
+        console.log('loaded');
+    };
+
+    raster.onError = function() {
+        console.error('error');
+    }*/
+
+    // Create a point-text item at {x: 30, y: 30}:
+    //var text = new paper.PointText(new paper.Point(paper.view.center));
+    //text.fillColor = 'black';
+
+    // Set the content of the text item:
+    //text.content = 'Hello world';
 
     paper.view.draw();
 }
@@ -149,4 +175,16 @@ function drawMarker (lane0path, person, origin, width, height) {
     //startLine.lineBy(new paper.Point(0,-person.path.strokeWidth));
     
     //startLine.lineTo(new paper.Point(origin.width+radius, origin.height-offset));
+}
+  
+function drawLegend (person, fieldOrigin) {
+    var namePosition = new paper.Point(
+        fieldOrigin.width + track.fieldSize.width/2,
+        fieldOrigin.height+30+person.lane*15
+    );   
+    // Create a point-text item:
+    var text = new paper.PointText(namePosition);
+    text.fillColor = person.color;
+    text.content = person.name;
+     
 }
