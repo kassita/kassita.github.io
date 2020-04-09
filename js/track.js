@@ -96,12 +96,18 @@ function createTrackCanvas(canvas) {
     finishLine.moveTo(finishLineStart);
     finishLine.lineTo(finishLineEnd);
 
-    /*var testPosition = new paper.Point(0,0);
-    var testImage = "/img/IMG_20200311_170150.jpg";
+    /*var logo = new Raster({
+        source: '/img/Kennonlogo.png',
+        position: (fieldOrigin.width + track.fieldSize.width/3,
+        fieldOrigin.height+30)
+    });*/
+    var testPosition = new paper.Point(0,0);
+    var testImage = "/img/Kennonlogo.png";
     var raster = new paper.Raster(testImage);
 
-    raster.position = paper.view.center;
-    raster.scale(0.025);
+    raster.position = (fieldOrigin.width + track.fieldSize.width/3,
+        fieldOrigin.height+65);
+    raster.scale(.25);
 
     raster.onLoad = function() {
         console.log('loaded');
@@ -109,14 +115,9 @@ function createTrackCanvas(canvas) {
 
     raster.onError = function() {
         console.error('error');
-    }*/
+    }
 
-    // Create a point-text item at {x: 30, y: 30}:
-    //var text = new paper.PointText(new paper.Point(paper.view.center));
-    //text.fillColor = 'black';
 
-    // Set the content of the text item:
-    //text.content = 'Hello world';
 
     paper.view.draw();
 }
