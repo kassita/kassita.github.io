@@ -7,7 +7,7 @@ const people = [
     {
         name:"Kassi",
         color:"#f7eb05",
-        progress: .85,
+        progress: .84,
         lastProgress: .72,
         lane: 0,
         path: null
