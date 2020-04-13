@@ -200,5 +200,16 @@ function drawLegend (person, fieldOrigin) {
     var text = new paper.PointText(namePosition);
     text.fillColor = person.color;
     text.content = person.name;
+
+    var progressPosition = new paper.Point(
+        fieldOrigin.width + (track.fieldSize.width/2-30),
+        fieldOrigin.height+30+person.lane*15
+    );
+
+    var positionPercent = person.progress*100
+
+    var positionText = new paper.PointText(progressPosition);
+    positionText.fillColor = person.color;
+    positionText.content = positionPercent.toString() + "%"
      
 }
