@@ -206,10 +206,10 @@ function drawLegend (person, fieldOrigin) {
         fieldOrigin.height+30+person.lane*15
     );
 
-    var positionPercent = person.progress*100
+    var positionPercent = person.progress*100;
 
     var positionText = new paper.PointText(progressPosition);
     positionText.fillColor = person.color;
-    positionText.content = positionPercent.toString() + "%"
+    positionText.content = positionPercent.toFixed(0) + "%"
      
 }
