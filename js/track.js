@@ -7,23 +7,23 @@ const people = [
     {
         name:"Kassi",
         color:"#f7eb05",
-        progress: .25,
-        lastProgress: .18,
+        progress: .47,
+        lastProgress: .25,
         lane: 0,
         path: null
     },
     {
         name:"Denise",
         color:"#ffffff",
-        progress: .29,
-        lastProgress: .22,
+        progress: .65,
+        lastProgress: .29,
         lane: 1,
         path: null
     },
     {
         name:"Dakotah",
         color:"#0c26ed",
-        progress: .09,
+        progress: .38,
         lastProgress: .09,
         lane: 2,
         path: null
@@ -31,24 +31,24 @@ const people = [
     {
         name:"Joe",
         color:"#09ed11",
-        progress: .33,
-        lastProgress: .26,
+        progress: .47,
+        lastProgress: .33,
         lane: 3,
         path: null
     },
     {
         name:"Kelly",
         color:"#830fd1",
-        progress: .31,
-        lastProgress: .24,
+        progress: .46,
+        lastProgress: .31,
         lane: 4,
         path: null
     },
     {
         name:"Todd",
         color:"#f58c0c",
-        progress: .40,
-        lastProgress: .31,
+        progress: .61,
+        lastProgress: .40,
         lane: 5,
         path: null
     }
